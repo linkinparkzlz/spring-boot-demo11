@@ -1,12 +1,15 @@
 package com.example.springbootdemo11.entity;
 
 
+import com.example.springbootdemo11.entity.listener.CustomerListener;
+
 import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
 @Access(value = AccessType.FIELD)
 @Table(name = "customer")
+@EntityListeners(value = {CustomerListener.class})
 public class Customer {
 
 
