@@ -18,6 +18,9 @@ public class Customer {
 
     @OneToOne(cascade = CascadeType.REMOVE)
     private CreditCard creditCard;
+    @ManyToOne
+    private Store store;
+
 
     public Long getId() {
         return id;
@@ -33,5 +36,21 @@ public class Customer {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public CreditCard getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(CreditCard creditCard) {
+        this.creditCard = creditCard;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
     }
 }
