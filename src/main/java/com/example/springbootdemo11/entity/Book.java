@@ -1,22 +1,27 @@
 package com.example.springbootdemo11.entity;
 
+
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Date;
 
 @Entity
-@Table(name = "stores")
-public class Store {
+@Table(name = "books")
+public class Book {
+
 
     @Id
     @GeneratedValue
     private Long id;
 
-
     private String name;
 
-    @OneToMany(mappedBy = "store")
-    private Collection<Customer> customers;
+    private String isbn;
 
+    private Date publishDate;
+
+    @ManyToMany(mappedBy = "books")
+    private Collection<Customer> customers;
 
     public Long getId() {
         return id;
@@ -34,6 +39,22 @@ public class Store {
         this.name = name;
     }
 
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public Date getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(Date publishDate) {
+        this.publishDate = publishDate;
+    }
+
     public Collection<Customer> getCustomers() {
         return customers;
     }
@@ -44,6 +65,7 @@ public class Store {
 
 
 }
+
 
 
 

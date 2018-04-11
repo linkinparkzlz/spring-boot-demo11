@@ -2,6 +2,7 @@ package com.example.springbootdemo11.entity;
 
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Access(value = AccessType.FIELD)
@@ -20,6 +21,11 @@ public class Customer {
     private CreditCard creditCard;
     @ManyToOne
     private Store store;
+
+
+
+    @ManyToMany
+    private Collection<Book> books;
 
 
     public Long getId() {
@@ -52,5 +58,13 @@ public class Customer {
 
     public void setStore(Store store) {
         this.store = store;
+    }
+
+    public Collection<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Collection<Book> books) {
+        this.books = books;
     }
 }
